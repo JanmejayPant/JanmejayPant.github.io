@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My AI Teaching Toolkit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    iframe, img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 30%;
+      min-width: 200px;
+    }
+    .quiz {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .quiz p {
+      margin: 10px 0 5px;
+    }
+    .flashcard {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .flashcard:hover {
+      background-color: #f1f1f1;
+      transform: translateY(-2px);
+    }
+    .question {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .answer {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+      display: none;
+    }
+    audio {
+      width: 100%;
+      margin: 15px 0;
+    }
+    .podcast-meta {
+      background: #f0f8ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .download-btn {
+      display: inline-block;
+      background: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #45a049;
+    }
+    .chatbot-container {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 30px 20px;
+      background: #2c3e50;
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .chatbot-footer {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .chatbot-toggle {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 15px;
+      transition: all 0.3s;
+    }
+    .chatbot-toggle:hover {
+      background: #3e8e41;
+      transform: translateY(-2px);
+    }
+    #chatbot-iframe {
+      width: 100%;
+      height: 0;
+      border: none;
+      transition: height 0.3s ease;
+      border-radius: 8px;
+    }
+    #chatbot-iframe.active {
+      height: 500px;
+    }
+    .footer-links {
+      margin-top: 20px;
+    }
+    .footer-links a {
+      color: #4CAF50;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 My AI Teaching Toolkit</h1>
+  <p><strong>Project:</strong> AI-Enhanced Digital Resource Hub for Educators</p>
+
+  <section>
+    <h2>🔗 Flashcard Deck</h2>
+    <p>Topic: <em>Machine Learning Basics</em></p>
+    <div class="flashcard" onclick="toggleFlashcard(1)">
+      <div class="question">In data mining, which algorithm is commonly used for association rule learning?</div>
+      <div class="answer" id="answer1"><b>Apriori</b></div>
+    </div>
+    <div class="flashcard" onclick="toggleFlashcard(2)">
+      <div class="question">Which data mining technique is used to predict continuous values?</div>
+      <div class="answer" id="answer2"><b>Regression</b></div>
+    </div>
+    <div class="flashcard" onclick="toggleFlashcard(3)">
+      <div class="question">What is the main purpose of data mining?</div>
+      <div class="answer" id="answer3"><b>To discover patterns and relationships in data</b></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📝 Student Quiz</h2>
+    <div class="quiz">
+      <p><strong>1. What is the correct way to declare a list in Python?</strong></p>
+      <ul>
+        <li>a) my_list = {1, 2, 3}</li>
+        <li>b) my_list = (1, 2, 3)</li>
+        <li><strong>✅ c) my_list = [1, 2, 3]</strong></li>
+      </ul>
+
+      <p><strong>2. Which keyword is used to define a function in Python?</strong></p>
+      <ul>
+        <li><strong>✅ a) def</strong></li>
+        <li>b) define</li>
+        <li>c) function</li>
+      </ul>
+
+      <p><strong>3. What will print(2 ** 3) output?</strong></p>
+      <ul>
+        <li>a) 6</li>
+        <li><strong>✅ b) 8</strong></li>
+        <li>c)9</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>📊 Exit Ticket Summary</h2>
+    <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/capture.JPG" alt="Exit Ticket Insights" />
+    <p><strong>Insights:</strong> 
+      - The lesson was described as <strong>informative</strong> and <strong>knowledgeable</strong> by the majority of students.<br />
+      - Most students (78.3%) rated their understanding of the topic as <strong>4 out of 5</strong>, with 18% rating it a perfect <strong>5</strong>.<br />
+      - A significant number of students (around 90%) indicated that they had no further questions, suggesting a solid grasp of the material.
+    </p>
+  </section>
+
+  <section>
+    <h2>🎙️ Lesson Podcast</h2>
+    <audio controls>
+      <source src="https://github.com/JanmejayPant/janmejayPant.github.io/raw/main/podcast_1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <a href="https://github.com/JanmejayPant/janmejayPant.github.io/raw/main/podcast_1.mp3" download class="download-btn">
+      Download Podcast
+    </a>
+    <div class="podcast-meta">
+      <p><strong>Title:</strong> The Legacy of Maharana Pratap</p>
+      <p><strong>Duration:</strong> 3 minutes</p>
+      <p><strong>Created with:</strong> ChatGPT (script) + ElevenLabs (voice)</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🖼️ AI Image Gallery</h2>
+    <div class="gallery">
+      <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/1_AI_Healthcare.jpg" alt="AI-generated image" />
+      <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/2_AI_Healthcare.jpg" alt="AI-generated image" />
+      <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/3_AI_Healthcare.jpg" alt="AI-generated image" />
+	  <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/4_AI_Healthcare.jpg" alt="AI-generated image" />
+    </div>
+  </section>
+
+  <section>
+    <h2>📚 Literature Mapping Summary</h2>
+    <p><strong>Topic:</strong> Unsupervised Learning in Medical Records</p>
+    <img src="https://raw.githubusercontent.com/JanmejayPant/janmejayPant.github.io/refs/heads/main/lit-map.png" alt="Literature Map" />
+    <p>This literature mapping highlights recent advances in clustering techniques applied to healthcare datasets using tools like ResearchRabbit and Elicit.</p>
+  </section>
+
+  <section>
+    <h2>✍️ Reflective Note</h2>
+    <p>
+      AI tools have completely changed how I approach teaching. From generating instant lesson summaries to creating custom quizzes, I can now focus more on engaging students creatively. This toolkit not only supports traditional instruction but opens new paths for student-led learning.
+    </p>
+  </section>
+
+  <footer>
+    <div class="chatbot-footer">
+      <h3>Need Help? Ask Our AI Teaching Assistant</h3>
+      <button class="chatbot-toggle" onclick="toggleChatbot()">Show Chatbot</button>
+      <iframe 
+        id="chatbot-iframe"
+        src="https://poe.com/AITeachingHelper/embed" 
+        title="AI Teaching Assistant"
+      ></iframe>
+    </div>
+    
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Resources</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    
+    <p>© 2023 AI Teaching Toolkit | Created with ❤️ for educators</p>
+  </footer>
+
+  <script>
+    function toggleFlashcard(cardId) {
+      const answer = document.getElementById(`answer${cardId}`);
+      answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+      
+      // Toggle animation
+      const flashcard = event.currentTarget;
+      flashcard.style.transform = answer.style.display === 'block' ? 'scale(1.02)' : 'scale(1)';
+    }
+
+    // Add event listener for audio error handling
+    document.querySelector('audio').addEventListener('error', function() {
+      console.error('Error loading audio file');
+      alert('Having trouble loading the podcast. Please try downloading it instead.');
+    });
+    
+    // Chatbot toggle function
+    function toggleChatbot() {
+      const iframe = document.getElementById('chatbot-iframe');
+      iframe.classList.toggle('active');
+      
+      const button = document.querySelector('.chatbot-toggle');
+      if (iframe.classList.contains('active')) {
+        button.textContent = 'Hide Chatbot';
+      } else {
+        button.textContent = 'Show Chatbot';
+      }
+    }
+  </script>
+</body>
+</html>
